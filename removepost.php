@@ -44,15 +44,12 @@
                         if (mysqli_num_rows($result) === 1) {
                             $row = mysqli_fetch_assoc($result);
                             $image_path = $row['image_path'];
-                            if (!empty($image_path)) {
-                                removeCarImageFile($image_path);
-                            }
                         }
 
                         // Soft-delete the record
                         $deleted_flag = 1;
                         $stmt = mysqli_prepare($dbc, "UPDATE cars SET deleted = ? WHERE id = ? AND user_id = ?");
-                        mysqli_stmt_bind_param($stmt, 'ii', $deleted_flag, $id, $user_id);
+                        mysqli_stmt_bind_param($stmt, 'iii', $deleted_flag, $id, $user_id);
                         mysqli_stmt_execute($stmt) or trigger_error('Error updating cars table', E_USER_ERROR);
 
                         header('Location: profile.php');

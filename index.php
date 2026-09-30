@@ -5,17 +5,12 @@
 ?>
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?= $page_title ?></title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet" crossorigin="anonymous">
-    </head>
+    
+    <?php require_once('head.php'); ?>
+
     <body>
-    <?php
-        require_once('nav.php');
-    ?>
+
+    <?php require_once('nav.php'); ?>
     <div class="container-fluid">
         <div class="row min-vh-100">
             <!-- Left contrast column -->
